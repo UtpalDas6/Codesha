@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <style>
+        .body {
+            background-color: gainsboro;
+        }
+        /* Define the background and border styles for the container */
+        .container {
+            font-family: roboto;
+            background-color: lightskyblue;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        /* Define the background and border styles for the form elements */
+        input[type="text"] {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        button[type="submit"] {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        /* Define the background and border styles for the submit button */
+        button[type="submit"] {
+            background-color: #e94560;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #c53e52;
+        }
+        /* Define the background and border styles for the weather display */
+        .weather-display {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        /* Define the background and border styles for the error message */
+        .error-message {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Weather App</h1>
+        <form method="POST" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <button type="submit">Get Weather</button>
+        </form>
+    {% if weather %}
+    <div style="width: 50%; margin: 0 auto;">
+        <h2>{{ weather.city }} Weather</h2>
+        <p>{{ weather.temperature }}°C</p>
+        <p>{{ weather.description }}</p>
+        <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="weather icon">
+    </div>
+    {% endif %}
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    </div>
+</body>
+</html>
