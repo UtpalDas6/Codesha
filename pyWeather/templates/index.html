@@ -80,7 +80,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align: center;">Weather App</h1>
+        <h1 style="text-align: center;">Weather or Not? 🤔☔️</h1>
         <form method="POST" style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
             <input type="text" name="city" placeholder="Enter city name" required>
             <button type="submit">Get Weather</button>
@@ -96,6 +96,8 @@
     {% if error %}
     <p>{{ error }}</p>
     {% endif %}
+    <footer style="font-size: x-small;float:right;">Powered By <a href="https://openweathermap.org/">OpenWeatherMap</a></footer>
     </div>
 </body>
+
 </html>
